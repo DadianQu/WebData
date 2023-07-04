@@ -124,3 +124,11 @@ check all possible user agent
 https://useragentstring.com/ 
 
 """
+
+
+class IPMiddleware:
+    PROXIES = ["111", "111", "111"]
+
+    def process_request(self, request, spider):
+        proxy = random.choice(self.PROXIES)
+        request.meta['proxy'] = proxy
